@@ -1,29 +1,17 @@
 const botoes = document.querySelectorAll("button");
 
-
 botoes.forEach(function (botao) {
     let curtiu = false;
-
-
-    botao.addEventListener("click", function () {
-        const contador = botao.querySelector("span");
-
-
-        let quantidade = Number(contador.textContent);
-
-
+    botao.addEventListener("click", botaoClicado);
+    function botaoClicado() {
+        console.log("fui clicado");
+        let texto = botao.querySelector("span");
         if (curtiu === false) {
-            quantidade++;
+            texto.textContent++;
             curtiu = true;
-            botao.classList.add("curtido");
         } else {
-            quantidade--;
+            texto.textContent--;
             curtiu = false;
-            botao.classList.remove("curtido");
         }
-
-
-        contador.textContent = quantidade;
-    });
-});
-
+    }
+})
